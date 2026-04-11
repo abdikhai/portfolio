@@ -25,6 +25,13 @@ export const Navbar = () => {
   }, []);
 
   useEffect(() => {
+    // Reset active section when navigating to home page
+    if (isHomePage && !location.hash) {
+      setActiveSection("");
+    }
+  }, [isHomePage, location.pathname, location.hash]);
+
+  useEffect(() => {
     if (!isHomePage) return;
 
     const sectionIds = navLinks.map((link) => link.href.replace("#", ""));

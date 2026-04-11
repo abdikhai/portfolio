@@ -124,7 +124,7 @@ export const AllProjects = () => {
             <p className="text-muted-foreground mb-6">
               Interested in working together?
             </p>
-            <Link to="/">
+            <Link to="/#contact">
               <Button>Get in Touch</Button>
             </Link>
           </div>
