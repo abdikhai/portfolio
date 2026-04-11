@@ -1,24 +1,42 @@
-import { ArrowUpRight, Github } from "lucide-react";
-import { Link } from "react-router-dom";
+import { ArrowLeft, ArrowUpRight, Github } from "lucide-react";
+import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@/components/Button";
+import { AnimatedBorderButton } from "@/components/AnimatedBorderButton";
 import { projects } from "@/data/projects";
 import { Footer } from "@/layout/Footer";
 import { useEffect } from "react";
 
 export const AllProjects = () => {
+  const navigate = useNavigate();
+
   useEffect(() => {
     // Scroll to top when component mounts
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    window.scrollTo(0, 0);
   }, []);
+
+  const handleGetInTouch = () => {
+    navigate("/", { state: { scrollTo: "contact" } });
+  };
 
   return (
     <div className="min-h-screen overflow-x-hidden flex flex-col">
       {/* Hero Section */}
-      <section className="pt-40 pb-20 relative overflow-hidden">
+      <section className="pt-20 relative overflow-hidden">
         <div className="absolute top-1/4 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
         <div className="absolute bottom-1/4 left-0 w-64 h-64 bg-highlight/5 rounded-full blur-3xl" />
 
         <div className="container mx-auto px-6 relative z-10">
+          <div className="mb-8">
+            <Link to="/">
+              <Button
+                variant="outline"
+                className="flex items-center md:gap-2 p-3 md:px-6"
+              >
+                <ArrowLeft className="w-5 h-5" />
+                <span className="hidden md:inline">Back to Home</span>
+              </Button>
+            </Link>
+          </div>
           <div className="text-center max-w-3xl mx-auto mb-12">
             <span className="text-secondary-foreground text-sm font-medium tracking-wider uppercase animate-fade-in">
               Portfolio
@@ -34,12 +52,6 @@ export const AllProjects = () => {
               Explore my complete collection of projects, from complex web
               applications to innovative tools that solve real-world problems.
             </p>
-          </div>
-
-          <div className="text-center animate-fade-in animation-delay-300">
-            <Link to="/">
-              <Button variant="outline">← Back to Home</Button>
-            </Link>
           </div>
         </div>
       </section>
@@ -124,9 +136,9 @@ export const AllProjects = () => {
             <p className="text-muted-foreground mb-6">
               Interested in working together?
             </p>
-            <Link to="/#contact">
-              <Button>Get in Touch</Button>
-            </Link>
+            <AnimatedBorderButton onClick={handleGetInTouch}>
+              Get in Touch
+            </AnimatedBorderButton>
           </div>
         </div>
       </section>

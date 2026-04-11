@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 /* eslint-disable react-hooks/purity */
 import {
   ArrowRight,
@@ -100,7 +99,7 @@ export const Hero = () => {
             <div className="flex flex-wrap gap-4 animate-fade-in animation-delay-300">
               <Link to="/projects">
                 <Button size="lg">
-                  View Projects <ArrowRight className=" w-5 h-5" />
+                  View Project <ArrowRight className=" w-5 h-5" />
                 </Button>
               </Link>
 

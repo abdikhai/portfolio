@@ -19,14 +19,14 @@ function Home() {
   const location = useLocation();
 
   useEffect(() => {
-    // Handle hash navigation after component mounts
-    if (location.hash) {
-      const sectionId = location.hash.replace("#", "");
-      const section = document.getElementById(sectionId);
+    const scrollTarget =
+      location.state?.scrollTo || location.hash?.replace("#", "");
+    if (scrollTarget) {
+      const section = document.getElementById(scrollTarget);
       if (section) {
         // Small delay to ensure DOM is fully rendered
         setTimeout(() => {
-          section.scrollIntoView({ behavior: "smooth" });
+          section.scrollIntoView({ behavior: "auto" });
         }, 100);
       }
     }
@@ -47,16 +47,25 @@ function Home() {
   );
 }
 
+function AppContent() {
+  const location = useLocation();
+  const showNavbar = location.pathname !== "/projects";
+
+  return (
+    <div className="min-h-screen overflow-x-hidden">
+      {showNavbar && <Navbar />}
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/projects" element={<AllProjects />} />
+      </Routes>
+    </div>
+  );
+}
+
 function App() {
   return (
     <Router>
-      <div className="min-h-screen overflow-x-hidden">
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/projects" element={<AllProjects />} />
-        </Routes>
-      </div>
+      <AppContent />
     </Router>
   );
 }
