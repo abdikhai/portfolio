@@ -10,6 +10,7 @@ import {
 } from "lucide-react";
 import { Button } from "../components/Button";
 import { AnimatedBorderButton } from "../components/AnimatedBorderButton";
+import { Link } from "react-router-dom";
 
 const skills = [
   "Python",
@@ -97,11 +98,11 @@ export const Hero = () => {
 
             {/* CTAs */}
             <div className="flex flex-wrap gap-4 animate-fade-in animation-delay-300">
-              <a href="#contact">
+              <Link to="/projects">
                 <Button size="lg">
-                  Contact Me <ArrowRight className="mt-1 w-5 h-5" />
+                  View Projects <ArrowRight className=" w-5 h-5" />
                 </Button>
-              </a>
+              </Link>
 
               <a href={CV_URL} target="_blank" rel="noopener noreferrer">
                 <AnimatedBorderButton>

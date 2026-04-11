@@ -1,58 +1,128 @@
 import { Button } from "@/components/Button";
 import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const navLinks = [
   { href: "#about", label: "About" },
   { href: "#projects", label: "Projects" },
   { href: "#experience", label: "Experience" },
-  { href: "#achievements", label: "achievements" },
+  { href: "#achievements", label: "Achievements" },
 ];
 
 export const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState("");
+  const location = useLocation();
+  const navigate = useNavigate();
+  const isHomePage = location.pathname === "/";
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-
+    const handleScroll = () => setIsScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll);
-
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  useEffect(() => {
+    if (!isHomePage) return;
+
+    const sectionIds = navLinks.map((link) => link.href.replace("#", ""));
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      {
+        rootMargin: "-40% 0px -55% 0px",
+        threshold: 0,
+      },
+    );
+
+    sectionIds.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+
+    return () => observer.disconnect();
+  }, [isHomePage]);
+
+  const handleNavClick = (href) => {
+    if (isHomePage) {
+      // On home page, just scroll to section
+      const section = document.getElementById(href.replace("#", ""));
+      if (section) {
+        section.scrollIntoView({ behavior: "smooth" });
+      }
+    } else {
+      // On other pages, navigate to home with hash
+      navigate(`/${href}`);
+    }
+    setIsMobileMenuOpen(false);
+  };
+
+  const handleContactClick = () => {
+    if (isHomePage) {
+      const contactSection = document.getElementById("contact");
+      if (contactSection) {
+        contactSection.scrollIntoView({ behavior: "smooth" });
+      }
+    } else {
+      navigate("/#contact");
+    }
+    setIsMobileMenuOpen(false);
+  };
+
+  const handleLogoClick = () => {
+    if (isHomePage) {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } else {
+      navigate("/");
+    }
+  };
   return (
     <header
       className={`fixed top-0 left-0 right-0 transition-all duration-500 ${isScrolled ? "glass-strong py-3" : "bg-transparent py-5"}  z-50`}
     >
       <nav className="container mx-auto px-6 flex items-center justify-between">
-        <a
-          href="#"
+        <button
+          onClick={handleLogoClick}
           className="text-xl font-bold tracking-tight hover:text-primary"
         >
           AK<span className="text-primary">.</span>
-        </a>
+        </button>
+
         {/* Desktop Nav */}
         <div className="hidden md:flex items-center gap-1">
           <div className="glass rounded-full px-2 py-1 flex items-center gap-1">
-            {navLinks.map((link, index) => (
-              <a
-                href={link.href}
-                key={index}
-                className="px-4 py-2 text-muted-foreground hover:text-foreground rounded-full hover:bg-surface"
-              >
-                {link.label}
-              </a>
-            ))}
+            {navLinks.map((link, index) => {
+              const isActive = activeSection === link.href.replace("#", "");
+              return (
+                <button
+                  key={index}
+                  onClick={() => handleNavClick(link.href)}
+                  className={`px-4 py-2 rounded-full transition-colors duration-200 ${
+                    isActive
+                      ? "text-foreground bg-surface font-medium"
+                      : "text-muted-foreground hover:text-foreground hover:bg-surface"
+                  }`}
+                >
+                  {link.label}
+                </button>
+              );
+            })}
           </div>
         </div>
 
         {/* CTA Button */}
         <div className="hidden md:block">
-          <a href="#contact">
-            <Button> Contact Me</Button>
-          </a>
+          <button onClick={handleContactClick}>
+            <Button>Contact Me</Button>
+          </button>
         </div>
 
         {/* Mobile Menu Button */}
@@ -69,17 +139,16 @@ export const Navbar = () => {
         <div className="md:hidden glass-strong animate-fade-in">
           <div className="container mx-auto px-6 py-6 flex flex-col gap-4">
             {navLinks.map((link, index) => (
-              <a
-                href={link.href}
+              <button
                 key={index}
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="text-lg text-muted-foreground hover:text-foreground py-2"
+                onClick={() => handleNavClick(link.href)}
+                className="text-lg text-muted-foreground hover:text-foreground py-2 text-left"
               >
                 {link.label}
-              </a>
+              </button>
             ))}
 
-            <Button onClick={() => setIsMobileMenuOpen(false)}>
+            <Button onClick={handleContactClick} className="w-full">
               Contact Me
             </Button>
           </div>
