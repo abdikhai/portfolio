@@ -27,7 +27,8 @@ export const Navbar = () => {
   useEffect(() => {
     // Reset active section when navigating to home page
     if (isHomePage && !location.hash) {
-      setActiveSection("");
+      // Small delay to ensure DOM is ready after navigation
+      setTimeout(() => setActiveSection(""), 100);
     }
   }, [isHomePage, location.pathname, location.hash]);
 
@@ -36,13 +37,54 @@ export const Navbar = () => {
 
     const sectionIds = navLinks.map((link) => link.href.replace("#", ""));
 
+    // Function to find active section based on scroll position
+    const findActiveSection = () => {
+      if (window.scrollY <= 100) {
+        setActiveSection("");
+        return;
+      }
+
+      for (const sectionId of sectionIds) {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          // Check if section is in viewport (considering the root margin)
+          if (
+            rect.top <= window.innerHeight * 0.4 &&
+            rect.bottom >= window.innerHeight * 0.55
+          ) {
+            setActiveSection(sectionId);
+            return;
+          }
+        }
+      }
+      setActiveSection("");
+    };
+
+    // Check active section on mount and scroll
+    findActiveSection();
+
+    const handleScroll = () => {
+      findActiveSection();
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
     const observer = new IntersectionObserver(
       (entries) => {
+        let hasActiveSection = false;
+
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
+          if (entry.isIntersecting && window.scrollY > 100) {
             setActiveSection(entry.target.id);
+            hasActiveSection = true;
           }
         });
+
+        // If no section is active and we're not at the very top, reset activeSection
+        if (!hasActiveSection && window.scrollY > 100) {
+          setActiveSection("");
+        }
       },
       {
         rootMargin: "-40% 0px -55% 0px",
@@ -50,12 +92,18 @@ export const Navbar = () => {
       },
     );
 
-    sectionIds.forEach((id) => {
-      const el = document.getElementById(id);
-      if (el) observer.observe(el);
-    });
+    // Small delay to ensure elements are mounted
+    setTimeout(() => {
+      sectionIds.forEach((id) => {
+        const el = document.getElementById(id);
+        if (el) observer.observe(el);
+      });
+    }, 200);
 
-    return () => observer.disconnect();
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      observer.disconnect();
+    };
   }, [isHomePage]);
 
   const handleNavClick = (href) => {
@@ -127,9 +175,7 @@ export const Navbar = () => {
 
         {/* CTA Button */}
         <div className="hidden md:block">
-          <button onClick={handleContactClick}>
-            <Button>Contact Me</Button>
-          </button>
+          <Button onClick={handleContactClick}>Contact Me</Button>
         </div>
 
         {/* Mobile Menu Button */}
@@ -149,7 +195,7 @@ export const Navbar = () => {
               <button
                 key={index}
                 onClick={() => handleNavClick(link.href)}
-                className="text-lg text-muted-foreground hover:text-foreground py-2 text-left"
+                className="text-lg text-muted-foreground hover:text-foreground hover:bg-surface hover:font-medium py-2 px-3 rounded-lg text-left transition-colors duration-200"
               >
                 {link.label}
               </button>

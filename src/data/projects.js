@@ -19,6 +19,22 @@ export const projects = [
     github: "https://github.com/HEAR4U-bangkit",
   },
   {
+    title: "StockLedger App",
+    description:
+      "Built a web-based ETL pipeline application that automates the transformation of stock movement data into structured General Ledger reports in Excel format, featuring multi-warehouse support, smart data validation, and auto-generated 13-sheet output.",
+    image: "/projects/project_stockledger.png",
+    tags: [
+      "Python",
+      "Flask",
+      "Pandas",
+      "SQLAlchemy",
+      "openpyxl",
+      "Tailwind CSS",
+    ],
+    link: "#",
+    github: "https://github.com/abdikhai/stockledger_app",
+  },
+  {
     title: "Bike Sharing Dashboard",
     description:
       "Built an interactive dashboard to analyze bike-sharing data, exploring usage patterns between casual and registered riders across seasons and weekdays using Streamlit.",
