@@ -14,6 +14,7 @@ import { Contact } from "@/sections/Contact";
 import { Footer } from "@/layout/Footer";
 import AllProjects from "@/sections/AllProjects";
 import { useEffect } from "react";
+import { Analytics } from "@vercel/analytics/react";
 
 function Home() {
   const location = useLocation();
@@ -66,6 +67,7 @@ function App() {
   return (
     <Router>
       <AppContent />
+      <Analytics />
     </Router>
   );
 }
