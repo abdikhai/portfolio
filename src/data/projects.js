@@ -1,5 +1,14 @@
 export const projects = [
   {
+    title: "TBDAS - Tuberculosis GIS Mapping & Prediction System",
+    description:
+      "Built a web-based GIS application to monitor and predict Tuberculosis (TB) hotspots in North Sumatra using the DIANA clustering algorithm, featuring automated CSV dataset ingestion, year-over-year health analytics, and interactive spatial visualizations to optimize healthcare resource allocation.",
+    image: "/projects/project_tbc-sumut.png",
+    tags: ["Laravel", "PHP", "GIS", "Leaflet.js"],
+    link: "#",
+    github: "#",
+  },
+  {
     title: "Livestock Price Forecasting System",
     description:
       "Developed a web-based forecasting system using Holt-Winters Exponential Smoothing to predict livestock product prices, helping analyze trends and support data-driven decision making.",

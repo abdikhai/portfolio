@@ -4,10 +4,11 @@ import { Button } from "@/components/Button";
 import { AnimatedBorderButton } from "@/components/AnimatedBorderButton";
 import { projects } from "@/data/projects";
 import { Footer } from "@/layout/Footer";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export const AllProjects = () => {
   const navigate = useNavigate();
+  const [expandedProjects, setExpandedProjects] = useState({});
 
   useEffect(() => {
     // Scroll to top when component mounts
@@ -16,6 +17,13 @@ export const AllProjects = () => {
 
   const handleGetInTouch = () => {
     navigate("/", { state: { scrollTo: "contact" } });
+  };
+
+  const toggleExpand = (title) => {
+    setExpandedProjects((prev) => ({
+      ...prev,
+      [title]: !prev[title],
+    }));
   };
 
   return (
@@ -111,9 +119,25 @@ export const AllProjects = () => {
                   <h3 className="text-xl font-bold mb-2 text-foreground">
                     {project.title}
                   </h3>
-                  <p className="text-muted-foreground text-sm mb-4 line-clamp-2">
-                    {project.description}
-                  </p>
+                  <div className="mb-4">
+                    <p
+                      onClick={() => toggleExpand(project.title)}
+                      className={`text-muted-foreground text-sm cursor-pointer hover:text-foreground/90 transition-colors select-none ${
+                        expandedProjects[project.title] ? "" : "line-clamp-2"
+                      }`}
+                      title="Click to expand/collapse"
+                    >
+                      {project.description}
+                    </p>
+                    <button
+                      onClick={() => toggleExpand(project.title)}
+                      className="text-xs font-semibold text-primary hover:text-primary/80 transition-colors mt-1 cursor-pointer focus:outline-none"
+                    >
+                      {expandedProjects[project.title]
+                        ? "Show Less"
+                        : "Read More"}
+                    </button>
+                  </div>
 
                   {/* Tags */}
                   <div className="flex flex-wrap gap-2">
