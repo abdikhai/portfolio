@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/Button";
 import { AnimatedBorderButton } from "@/components/AnimatedBorderButton";
 import { projects } from "@/data/projects";
+import { TechTag } from "@/components/TechTag";
 
 const FEATURED_COUNT = 2;
 
@@ -91,12 +92,7 @@ export const Projects = () => {
                 </p>
                 <div className="flex flex-wrap gap-2">
                   {project.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="px-4 py-1.5 rounded-full bg-surface text-xs font-medium border border-border/50 text-muted-foreground hover:border-primary/50 hover:text-primary transition-all duration-300"
-                    >
-                      {tag}
-                    </span>
+                    <TechTag key={tag} tag={tag} />
                   ))}
                 </div>
               </div>

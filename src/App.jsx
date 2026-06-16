@@ -12,9 +12,21 @@ import { Experience } from "@/sections/Experience";
 import { Achievements } from "@/sections/Achievements";
 import { Contact } from "@/sections/Contact";
 import { Footer } from "@/layout/Footer";
-import AllProjects from "@/sections/AllProjects";
-import { useEffect } from "react";
+import { useEffect, lazy, Suspense } from "react";
 import { Analytics } from "@vercel/analytics/react";
+
+// Lazy load AllProjects since it is a secondary route
+const AllProjects = lazy(() => import("@/sections/AllProjects"));
+
+// Premium sleek loading component
+const PageLoader = () => (
+  <div className="min-h-screen flex items-center justify-center bg-background">
+    <div className="flex flex-col items-center gap-4">
+      <div className="w-10 h-10 rounded-full border-2 border-muted border-t-primary animate-spin" />
+      <span className="text-muted-foreground text-xs uppercase tracking-widest animate-pulse">Loading...</span>
+    </div>
+  </div>
+);
 
 function Home() {
   const location = useLocation();
@@ -57,7 +69,14 @@ function AppContent() {
       {showNavbar && <Navbar />}
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/projects" element={<AllProjects />} />
+        <Route
+          path="/projects"
+          element={
+            <Suspense fallback={<PageLoader />}>
+              <AllProjects />
+            </Suspense>
+          }
+        />
       </Routes>
     </div>
   );

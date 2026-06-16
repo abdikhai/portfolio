@@ -1,11 +1,11 @@
 const experiences = [
   {
     period: "Jan 2026 — Feb 2026",
-    role: "Programmer",
+    role: "Software Developer",
     company: "Gugus Penjamin Mutu (GPM), Universitas Negeri Medan",
     description:
-      "Developed 3 academic systems using Laravel and MySQL, including a conference platform managing 50+ paper submissions and a postgraduate admission system used by ~50 applicants.",
-    technologies: ["Laravel", "MySQL", "Filament", "PHP"],
+      "Maintained and improved 3 academic information systems using Laravel, Filament, and MySQL, including a bilingual postgraduate admission platform and a conference management system supporting paper submission, peer review, and publication workflows. Also provided technical support to students and staff.",
+    technologies: ["Laravel", "MySQL", "Filament", "PHP", "Tailwind CSS"],
     current: false,
   },
   {

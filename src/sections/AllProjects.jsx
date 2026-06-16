@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@/components/Button";
 import { AnimatedBorderButton } from "@/components/AnimatedBorderButton";
 import { projects } from "@/data/projects";
+import { TechTag } from "@/components/TechTag";
 import { Footer } from "@/layout/Footer";
 import { useEffect, useState } from "react";
 
@@ -142,12 +143,7 @@ export const AllProjects = () => {
                   {/* Tags */}
                   <div className="flex flex-wrap gap-2">
                     {project.tags.map((tag, idx) => (
-                      <span
-                        key={idx}
-                        className="text-xs px-3 py-1 rounded-full bg-surface text-secondary-foreground"
-                      >
-                        {tag}
-                      </span>
+                      <TechTag key={idx} tag={tag} />
                     ))}
                   </div>
                 </div>
