@@ -78,7 +78,7 @@ export const Contact = () => {
     } catch (err) {
       console.error("EmailJS error:", err);
       setSubmitStatus({
-        type: "err",
+        type: "error",
         message: err.text || "Failed to send message. Please try again later.",
       });
     } finally {
@@ -139,12 +139,13 @@ export const Contact = () => {
               <div>
                 <label
                   htmlFor="email"
-                  type="email"
                   className="block text-xs sm:text-sm font-medium mb-2"
                 >
                   Email
                 </label>
                 <input
+                  id="email"
+                  type="email"
                   required
                   placeholder="your@email.com"
                   value={formData.email}
@@ -223,14 +224,14 @@ export const Contact = () => {
                     href={item.href}
                     className="flex items-center gap-3 sm:gap-4 p-3 sm:p-4 rounded-xl hover:bg-surface transition-colors group"
                   >
-                    <div className="w-10 sm:w-12 h-10 sm:h-12 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors flex-shrink-0">
+                    <div className="w-10 sm:w-12 h-10 sm:h-12 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors shrink-0">
                       <item.icon className="w-4 sm:w-5 h-4 sm:h-5 text-primary" />
                     </div>
                     <div className="min-w-0">
                       <div className="text-xs sm:text-sm text-muted-foreground">
                         {item.label}
                       </div>
-                      <div className="font-medium text-sm sm:text-base break-words">
+                      <div className="font-medium text-sm sm:text-base wrap-break-words">
                         {item.value}
                       </div>
                     </div>
@@ -244,13 +245,12 @@ export const Contact = () => {
               <div className="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
                 <span className="w-2.5 sm:w-3 h-2.5 sm:h-3 bg-green-500 rounded-full animate-pulse" />
                 <span className="font-medium text-sm sm:text-base">
-                  Currently Available
+                  Open to Collaborations
                 </span>
               </div>
               <p className="text-muted-foreground text-xs sm:text-sm">
-                I'm currently open to opportunities in machine learning, data,
-                and web development. I'm excited to contribute, learn, and grow
-                through real-world projects and professional roles.
+                Always interested in discussing new technologies, innovative projects,
+                freelance opportunities, and engineering collaborations.
               </p>
             </div>
           </div>

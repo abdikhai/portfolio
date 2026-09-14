@@ -1,5 +1,14 @@
 const experiences = [
   {
+    period: "Jul 2026 — Present",
+    role: "Software Developer",
+    company: "PT. Charoen Pokphand Indonesia, Food Division — Medan, Indonesia",
+    description:
+      "Independently built a Manufacturing Execution System (MES) from the ground up for the Production Department, handling full-stack development from backend and database to frontend and deployment. Also designed UI/UX and production floor signage to support operational workflows.",
+    technologies: ["Laravel", "PHP", "MySQL", "Alpine.js", "Tailwind CSS"],
+    current: true,
+  },
+  {
     period: "Jan 2026 — Feb 2026",
     role: "Software Developer",
     company: "Gugus Penjamin Mutu (GPM), Universitas Negeri Medan",
@@ -92,7 +101,7 @@ export const Experience = () => {
                       {exp.description}
                     </p>
                     <div
-                      className={`flex flex-wrap gap-2 mt-4 ${idx & (2 === 0) ? "md:justify-end" : ""}`}
+                      className={`flex flex-wrap gap-2 mt-4 ${idx % 2 === 0 ? "md:justify-end" : ""}`}
                     >
                       {exp.technologies.map((tech, techIdx) => (
                         <span

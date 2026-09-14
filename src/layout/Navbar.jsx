@@ -20,14 +20,13 @@ export const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   useEffect(() => {
     // Reset active section when navigating to home page
     if (isHomePage && !location.hash) {
-      // Small delay to ensure DOM is ready after navigation
       setTimeout(() => setActiveSection(""), 100);
     }
   }, [isHomePage, location.pathname, location.hash]);
@@ -37,54 +36,13 @@ export const Navbar = () => {
 
     const sectionIds = navLinks.map((link) => link.href.replace("#", ""));
 
-    // Function to find active section based on scroll position
-    const findActiveSection = () => {
-      if (window.scrollY <= 100) {
-        setActiveSection("");
-        return;
-      }
-
-      for (const sectionId of sectionIds) {
-        const element = document.getElementById(sectionId);
-        if (element) {
-          const rect = element.getBoundingClientRect();
-          // Check if section is in viewport (considering the root margin)
-          if (
-            rect.top <= window.innerHeight * 0.4 &&
-            rect.bottom >= window.innerHeight * 0.55
-          ) {
-            setActiveSection(sectionId);
-            return;
-          }
-        }
-      }
-      setActiveSection("");
-    };
-
-    // Check active section on mount and scroll
-    findActiveSection();
-
-    const handleScroll = () => {
-      findActiveSection();
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
     const observer = new IntersectionObserver(
       (entries) => {
-        let hasActiveSection = false;
-
         entries.forEach((entry) => {
           if (entry.isIntersecting && window.scrollY > 100) {
             setActiveSection(entry.target.id);
-            hasActiveSection = true;
           }
         });
-
-        // If no section is active and we're not at the very top, reset activeSection
-        if (!hasActiveSection && window.scrollY > 100) {
-          setActiveSection("");
-        }
       },
       {
         rootMargin: "-40% 0px -55% 0px",
@@ -100,10 +58,7 @@ export const Navbar = () => {
       });
     }, 200);
 
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-      observer.disconnect();
-    };
+    return () => observer.disconnect();
   }, [isHomePage]);
 
   const handleNavClick = (href) => {

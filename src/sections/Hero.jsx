@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/purity */
 import {
   ArrowRight,
   Github,
@@ -12,24 +11,30 @@ import { AnimatedBorderButton } from "../components/AnimatedBorderButton";
 import { Link } from "react-router-dom";
 
 const skills = [
+  "Laravel",
+  "PHP",
+  "Alpine.js",
+  "Tailwind CSS",
   "Python",
   "Machine Learning",
   "TensorFlow",
   "Flask",
-  "MongoDB",
   "SQL",
-  "Laravel",
-  "Node.js",
   "React",
-  "Tailwind CSS",
-  "Bootstrap",
-  "Canva",
+  "Node.js",
   "Git",
   "GitHub",
 ];
 
 const CV_URL =
   "https://drive.google.com/file/d/16h26dKKU9lFJ5t93bnPOLQ1C86XUAsm1/view?usp=drive_link";
+
+const DOTS = Array.from({ length: 30 }, () => ({
+  left: `${Math.random() * 100}%`,
+  top: `${Math.random() * 100}%`,
+  duration: `${15 + Math.random() * 20}s`,
+  delay: `${Math.random() * 5}s`,
+}));
 
 export const Hero = () => {
   return (
@@ -38,7 +43,10 @@ export const Hero = () => {
       <div className="absolute inset-0">
         <img
           src="/hero-bg.webp"
-          alt="Hero Image"
+          alt=""
+          fetchPriority="high"
+          loading="eager"
+          decoding="async"
           className="w-full h-full object-cover opacity-40"
         />
         <div className="absolute inset-0 bg-linear-to-b from-background/20 via-background/80 to-background"></div>
@@ -46,18 +54,16 @@ export const Hero = () => {
 
       {/* Green Dots */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(30)].map((_, i) => (
+        {DOTS.map((dot, i) => (
           <div
             key={i}
             className="absolute w-1.5 h-1.5 rounded-full opacity-60"
             style={{
               backgroundColor: "#20B2A6",
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animation: `slow-drift ${
-                15 + Math.random() * 20
-              }s ease-in-out infinite`,
-              animationDelay: `${Math.random() * 5}s`,
+              left: dot.left,
+              top: dot.top,
+              animation: `slow-drift ${dot.duration} ease-in-out infinite`,
+              animationDelay: dot.delay,
             }}
           />
         ))}
@@ -71,27 +77,26 @@ export const Hero = () => {
             <div className="animate-fade-in">
               <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass text-sm text-primary">
                 <span className="w-2 h-2 bg-primary rounded-full animate-pulse" />
-                Machine Learning • Data Science • Front-End Development
+                Full-Stack Developer • Web Development • Machine Learning
               </span>
             </div>
 
             {/* Headline */}
             <div className="space-y-4">
               <h1 className="text-5xl md:text-6xl lg:text-6xl font-bold leading-tight animate-fade-in animation-delay-100">
-                Building
-                <span className="text-primary glow-text"> intelligent</span>
+                I Build
+                <span className="text-primary glow-text"> system</span>
                 <br />
-                Systems with
+                from idea to
                 <br />
                 <span className="font-serif italic font-normal text-white">
-                  data.
+                  implementation.
                 </span>
               </h1>
               <p className="text-lg text-muted-foreground max-w-lg animate-fade-in animation-delay-200">
-                Hi, I'm Khairul Abdi — a Computer Science graduate specializing
-                in Data, Machine Learning, and Front-End Development. Bangkit
-                2024 Batch 1 ML Graduate with Distinction — Top 10% out of
-                2,000+ participants.
+                Hi, I'm Khairul Abdi, a Computer Science graduate and Full-Stack
+                Developer. I Build practical web systems, from backend
+                architecture and databases to frontend implementation.
               </p>
             </div>
 
@@ -146,8 +151,11 @@ export const Hero = () => {
               />
               <div className="relative glass rounded-3xl p-2 glow-border">
                 <img
-                  src="/profile-photo.webp"
+                  src="/profile-photo2.webp"
                   alt="Khairul Abdi"
+                  fetchPriority="high"
+                  loading="eager"
+                  decoding="async"
                   className="w-full aspect-4/5 object-cover rounded-2xl"
                 />
 
@@ -156,7 +164,7 @@ export const Hero = () => {
                   <div className="flex items-center gap-3">
                     <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse" />
                     <span className="text-sm font-medium">
-                      Available for work
+                      Open to opportunities
                     </span>
                   </div>
                 </div>

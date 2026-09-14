@@ -41,44 +41,40 @@ export const About = () => {
             </div>
 
             <h2 className="text-4xl md:text-5xl font-bold leading-tight animate-fade-in animation-delay-100 text-secondary-foreground">
-              Building the future,
+              Building systems that
               <span className="font-serif italic font-normal text-white">
                 {" "}
-                one component at a time.
+                make work simpler.
               </span>
             </h2>
 
             <div className="space-y-4 text-muted-foreground animate-fade-in animation-delay-200">
               <p>
                 I'm a Computer Science graduate from Universitas Negeri Medan
-                with a strong focus on data, machine learning, and Web
-                development. I'm passionate about building intelligent,
-                data-driven applications that solve real-world problems.
+                and a Full-Stack Developer working mainly with Laravel, PHP, and
+                MySQL.
               </p>
 
               <p>
-                I graduated from Bangkit Academy 2024 Batch 1 — Machine Learning
-                Path — with Distinction, ranking in the Top 10% out of 2,000+
-                participants. The program sharpened my skills in machine
-                learning, data processing, and building end-to-end intelligent
-                solutions using Python.
+                I currently work as a Software Developer at PT. Charoen Pokphand
+                Indonesia, where I built a Manufacturing Execution System (MES)
+                from scratch for the Production Department. I work across the
+                stack, from database and backend development to frontend
+                implementation, deployment, and UI/UX.
               </p>
 
               <p>
-                Beyond machine learning, I enjoy crafting web interfaces using
-                React and Tailwind CSS, and developing backend systems with
-                Laravel and Flask — always looking for ways to bridge data and
-                great user experiences.
+                I also have a background in Machine Learning. I graduated from
+                Bangkit Academy 2024, Machine Learning Path, with Distinction and
+                ranked in the Top 10% of 2,000+ participants.
+              </p>
+
+              <p>
+                I enjoy building software from the ground up and figuring out how
+                technology can fit into the way people actually work.
               </p>
             </div>
 
-            <div className="glass rounded-2xl p-6 glow-border animate-fade-in animation-delay-300">
-              <p className="text-lg font-medium italic text-foreground">
-                "I believe the best solutions come from combining clean data,
-                solid engineering, and a deep understanding of the problem at
-                hand."
-              </p>
-            </div>
           </div>
 
           {/* Right Column - Highlights */}

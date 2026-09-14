@@ -3,7 +3,6 @@ import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@/components/Button";
 import { AnimatedBorderButton } from "@/components/AnimatedBorderButton";
 import { projects } from "@/data/projects";
-import { TechTag } from "@/components/TechTag";
 import { Footer } from "@/layout/Footer";
 import { useEffect, useState } from "react";
 
@@ -86,6 +85,8 @@ export const AllProjects = () => {
                   <img
                     src={project.image}
                     alt={project.title}
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   />
                   <div className="absolute inset-0 bg-linear-to-t from-card via-card/50 to-transparent opacity-60" />
@@ -143,7 +144,12 @@ export const AllProjects = () => {
                   {/* Tags */}
                   <div className="flex flex-wrap gap-2">
                     {project.tags.map((tag, idx) => (
-                      <TechTag key={idx} tag={tag} />
+                      <span
+                        key={idx}
+                        className="text-xs px-3 py-1 rounded-full bg-surface text-secondary-foreground"
+                      >
+                        {tag}
+                      </span>
                     ))}
                   </div>
                 </div>
