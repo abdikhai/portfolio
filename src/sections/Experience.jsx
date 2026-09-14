@@ -1,6 +1,6 @@
 const experiences = [
   {
-    period: "Jul 2026 — Present",
+    period: "Jun 2026 — Present",
     role: "Software Developer",
     company: "PT. Charoen Pokphand Indonesia, Food Division — Medan, Indonesia",
     description:
