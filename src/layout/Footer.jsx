@@ -10,7 +10,7 @@ const socialLinks = [
   {
     icon: Instagram,
     href: "https://www.instagram.com/abdey_k/",
-    label: "Twitter",
+    label: "Instagram",
   },
 ];
 

@@ -2,9 +2,9 @@ const experiences = [
   {
     period: "Jun 2026 — Present",
     role: "Software Developer",
-    company: "PT. Charoen Pokphand Indonesia, Food Division — Medan, Indonesia",
+    company: "PT Global Permai Abadi (Placement: PT Charoen Pokphand Indonesia – Food Division, Medan)",
     description:
-      "Independently built a Manufacturing Execution System (MES) from the ground up for the Production Department, handling full-stack development from backend and database to frontend and deployment. Also designed UI/UX and production floor signage to support operational workflows.",
+      "Built a Manufacturing Execution System (MES) to digitalize Production Department operations, and an internal payroll system based on attendance and overtime to automate salary calculation for outsourced employees. Handled full-stack development (Laravel, PHP, MySQL, Alpine.js, Tailwind CSS) from database design to deployment, and translated production team needs into app features, UI/UX, and floor signage.",
     technologies: ["Laravel", "PHP", "MySQL", "Alpine.js", "Tailwind CSS"],
     current: true,
   },
@@ -13,25 +13,25 @@ const experiences = [
     role: "Software Developer",
     company: "Gugus Penjamin Mutu (GPM), Universitas Negeri Medan",
     description:
-      "Maintained and improved 3 academic information systems using Laravel, Filament, and MySQL, including a bilingual postgraduate admission platform and a conference management system supporting paper submission, peer review, and publication workflows. Also provided technical support to students and staff.",
+      "Developed and maintained 3 academic information systems using Laravel, Filament, MySQL, and Tailwind CSS, including a bilingual (Indonesian–English) admission system supporting 2 intake cycles with 76 applicants, and the AISTEEL seminar system handling ~50 papers with peer-review and publication. Also provided technical support to prospective and active students.",
     technologies: ["Laravel", "MySQL", "Filament", "PHP", "Tailwind CSS"],
     current: false,
   },
   {
     period: "Feb 2024 — Jun 2024",
-    role: "Machine Learning Cohort (Graduate with Distinction)",
-    company: "Bangkit Academy Led by Google, GoTo, and Trevaloka",
+    role: "Machine Learning Cohort – Distinction (Top 10% of 2,000+ Participants)",
+    company: "Bangkit Academy led by Google, Goto, and Traveloka",
     description:
-      "Completed 10+ machine learning projects and built 5 CNN models for image classification and environmental sound recognition using TensorFlow.",
+      "Completed 10+ end-to-end projects covering data preprocessing, model training, and evaluation. Led the ML Team (3 members) in a cross-functional capstone with 3 ML, 3 Cloud Computing, and 2 Mobile Developers, building an environmental sound recognition model with Python and TensorFlow (project score 91.6/100).",
     technologies: ["Python", "TensorFlow", "Keras", "NumPy", "Google Colab"],
     current: false,
   },
   {
     period: "Dec 2022 — Feb 2024",
-    role: "Front-End Developer",
+    role: "Freelance Front-End Developer",
     company: "UNDANKIN",
     description:
-      "Built 8 responsive digital invitation websites and maintained the company platform using PHP, Bootstrap, and jQuery.",
+      "Designed and developed 8 web-based digital invitation themes using HTML, PHP, Bootstrap, and jQuery, and maintained and improved the UI to keep it responsive and consistent.",
     technologies: ["HTML", "CSS", "JavaScript", "PHP", "Bootstrap", "jQuery"],
     current: false,
   },

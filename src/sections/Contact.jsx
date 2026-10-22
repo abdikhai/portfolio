@@ -1,6 +1,5 @@
 import {
   Mail,
-  Phone,
   MapPin,
   Send,
   CheckCircle,
@@ -15,18 +14,12 @@ const contactInfo = [
     icon: Mail,
     label: "Email",
     value: "abdikhairul71@gmail.com",
-    href: "mailto:abdikhairul71@gmail",
-  },
-  {
-    icon: Phone,
-    label: "Phone",
-    value: "+62 (8) 9614407474",
-    href: "tel:+6289614407474",
+    href: "mailto:abdikhairul71@gmail.com",
   },
   {
     icon: MapPin,
     label: "Location",
-    value: "Medan, Indonesia",
+    value: "Medan, Sumatera Utara",
     href: "#",
   },
 ];

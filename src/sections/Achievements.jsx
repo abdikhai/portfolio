@@ -12,13 +12,13 @@ const achievements = [
     title: "Hear4U - Sound Recognition for the Hearing Impaired",
     subtitle: "Capstone Project • Bangkit Academy",
     description:
-      "Built a CNN-based system to classify 10 environmental sounds, enabling real-time audio awareness for hearing-impaired users.",
+      "Led the ML team and built a CNN-based model classifying 10 environmental sounds, scoring 91.6/100 and enabling real-time audio awareness for hearing-impaired users.",
   },
   {
     title: "GPA 3.90 / 4.00",
     subtitle: "Universitas Negeri Medan",
     description:
-      "Graduated with excellent academic performance in Computer Science.",
+      "Graduated in Computer Science. Thesis: commodity price trend forecasting with Holt-Winters Exponential Smoothing (error <10%) and a Flask visualization dashboard.",
   },
   {
     title: "PKM Grant Recipient (Project Lead)",
@@ -33,10 +33,22 @@ const achievements = [
       "Developed an orange maturity detection model using Support Vector Machine.",
   },
   {
-    title: "Published Research",
+    title: "Presenter at SEMASTIKA 2025",
+    subtitle: "Seminar Nasional Matematika • FMIPA UNIMED",
+    description:
+      "Presented on 'Optimalisasi AI untuk Mewujudkan Pembelajaran yang Berdampak dan Berkelanjutan'.",
+  },
+  {
+    title: "Published Research (2023)",
     subtitle: "Random Forest",
     description:
-      "Published research on drinking water feasibility prediction using machine learning.",
+      "Published 'Penerapan Algoritma Random Forest dalam Prediksi Kelayakan Air Minum'.",
+  },
+  {
+    title: "Professional Certifications",
+    subtitle: "DeepLearning.AI • Google • Coursera",
+    description:
+      "TensorFlow Developer Specialization, TensorFlow: Advanced Techniques, Machine Learning Specialization, Mathematics for ML and Data Science, and Google Data Analytics.",
   },
 ];
 

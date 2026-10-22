@@ -21,7 +21,10 @@ const skills = [
   "Flask",
   "SQL",
   "React",
-  "Node.js",
+  "MySQL",
+  "JavaScript",
+  "Bootstrap",
+  "Filament",
   "Git",
   "GitHub",
 ];
@@ -95,7 +98,7 @@ export const Hero = () => {
               </h1>
               <p className="text-lg text-muted-foreground max-w-lg animate-fade-in animation-delay-200">
                 Hi, I'm Khairul Abdi, a Computer Science graduate and Full-Stack
-                Developer. I Build practical web systems, from backend
+                Developer. I build practical web systems like MES and payroll, from backend
                 architecture and databases to frontend implementation.
               </p>
             </div>

@@ -1,5 +1,23 @@
 export const projects = [
   {
+    title: "Manufacturing Execution System (MES)",
+    description:
+      "Built a Manufacturing Execution System from scratch to digitalize the operations of the Production Department at PT Charoen Pokphand Indonesia, covering database design, backend, frontend, deployment, UI/UX, and production-floor signage.",
+    image: "/projects/project_mes.webp",
+    tags: ["Laravel", "PHP", "MySQL", "Alpine.js", "Tailwind CSS"],
+    link: "#",
+    github: "#",
+  },
+  {
+    title: "Internal Payroll System",
+    description:
+      "Developed an internal payroll system based on attendance and overtime to automate salary calculation for outsourced employees, from database design to deployment and maintenance.",
+    image: "/projects/project_payroll.webp",
+    tags: ["Laravel", "PHP", "MySQL", "Alpine.js", "Tailwind CSS"],
+    link: "#",
+    github: "#",
+  },
+  {
     title: "TBDAS - Tuberculosis GIS Mapping & Prediction System",
     description:
       "Built a web-based GIS application to monitor and predict Tuberculosis (TB) hotspots in North Sumatra using the DIANA clustering algorithm, featuring automated CSV dataset ingestion, year-over-year health analytics, and interactive spatial visualizations to optimize healthcare resource allocation.",

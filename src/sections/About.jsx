@@ -17,7 +17,7 @@ const highlights = [
     icon: Code2,
     title: "Web Development",
     description:
-      "Building responsive and interactive web interfaces using React, Tailwind CSS, and modern web technologies.",
+      "Building responsive and interactive web applications using Laravel, Alpine.js, React, Tailwind CSS, and modern web technologies.",
   },
   {
     icon: Lightbulb,
@@ -50,17 +50,17 @@ export const About = () => {
 
             <div className="space-y-4 text-muted-foreground animate-fade-in animation-delay-200">
               <p>
-                I'm a Computer Science graduate from Universitas Negeri Medan
-                and a Full-Stack Developer working mainly with Laravel, PHP, and
+                I'm a Computer Science graduate from Universitas Negeri Medan,
+                focused on Web Development, data management, and Machine Learning, working mainly with Laravel, PHP, and
                 MySQL.
               </p>
 
               <p>
-                I currently work as a Software Developer at PT. Charoen Pokphand
-                Indonesia, where I built a Manufacturing Execution System (MES)
-                from scratch for the Production Department. I work across the
+                I currently work as a Software Developer at PT Charoen Pokphand
+                Indonesia, where I built a Manufacturing Execution System (MES) and an internal payroll system
+                used by active users, working closely with cross-division teams. I work across the
                 stack, from database and backend development to frontend
-                implementation, deployment, and UI/UX.
+                implementation, deployment, and maintenance.
               </p>
 
               <p>

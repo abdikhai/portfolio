@@ -23,6 +23,12 @@
   --color-surface: #1a2329;
 }
 
+@utility container {
+  margin-inline: auto;
+  width: 100%;
+  max-width: 80rem;
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;
