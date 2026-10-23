@@ -3,7 +3,7 @@ export const projects = [
     title: "Manufacturing Execution System (MES)",
     description:
       "Built a Manufacturing Execution System from scratch to digitalize the operations of the Production Department at PT Charoen Pokphand Indonesia, covering database design, backend, frontend, deployment, UI/UX, and production-floor signage.",
-    image: "/projects/project_mes.webp",
+    image: "/projects/project_mes.jfif",
     tags: ["Laravel", "PHP", "MySQL", "Alpine.js", "Tailwind CSS"],
     link: "#",
     github: "#",
