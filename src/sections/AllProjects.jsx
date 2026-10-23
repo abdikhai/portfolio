@@ -13,6 +13,10 @@ export const AllProjects = () => {
   useEffect(() => {
     // Scroll to top when component mounts
     window.scrollTo(0, 0);
+    document.title = "All Projects | Khairul Abdi";
+    return () => {
+      document.title = "Khairul Abdi | Full-Stack Developer Portfolio";
+    };
   }, []);
 
   const handleGetInTouch = () => {
