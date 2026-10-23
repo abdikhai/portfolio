@@ -32,7 +32,7 @@ const skills = [
 const CV_URL =
   "https://drive.google.com/file/d/16h26dKKU9lFJ5t93bnPOLQ1C86XUAsm1/view?usp=drive_link";
 
-const DOTS = Array.from({ length: 30 }, () => ({
+const DOTS = Array.from({ length: 16 }, () => ({
   left: `${Math.random() * 100}%`,
   top: `${Math.random() * 100}%`,
   duration: `${15 + Math.random() * 20}s`,
@@ -67,6 +67,7 @@ export const Hero = () => {
               top: dot.top,
               animation: `slow-drift ${dot.duration} ease-in-out infinite`,
               animationDelay: dot.delay,
+              willChange: "transform",
             }}
           />
         ))}
