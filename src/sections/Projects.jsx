@@ -49,7 +49,7 @@ export const Projects = () => {
               {/* Image */}
               <div className="relative overflow-hidden aspect-video">
                 <img
-                  src={project.image}
+                  src={`${import.meta.env.BASE_URL}${project.image.replace(/^\//, "")}`}
                   alt={project.title}
                   loading="lazy"
                   decoding="async"

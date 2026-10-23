@@ -45,7 +45,7 @@ export const Hero = () => {
       {/* Bg */}
       <div className="absolute inset-0">
         <img
-          src="/hero-bg.webp"
+          src={`${import.meta.env.BASE_URL}hero-bg.webp`}
           alt=""
           fetchPriority="high"
           loading="eager"
@@ -154,7 +154,7 @@ export const Hero = () => {
               />
               <div className="relative glass rounded-3xl p-2 glow-border">
                 <img
-                  src="/profile-photo2.webp"
+                  src={`${import.meta.env.BASE_URL}profile-photo2.webp`}
                   alt="Khairul Abdi"
                   fetchPriority="high"
                   loading="eager"
